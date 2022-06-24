@@ -1,5 +1,6 @@
-package com.joy.MOVIERESERVATIONSYSTEM.domain;
+package com.joy.MOVIERESERVATIONSYSTEM.domain.member;
 
+import com.joy.MOVIERESERVATIONSYSTEM.domain.reservation.Reservation;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @Getter
 @Setter
 public class Member {
+
     @Id
     @GeneratedValue
     @Column(name = "member_id")
