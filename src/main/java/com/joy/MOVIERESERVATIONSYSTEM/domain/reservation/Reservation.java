@@ -31,7 +31,7 @@ public class Reservation {
     private int count;
 
     @Enumerated(EnumType.STRING)
-    private ReservationStatus status; //주문상태 [ORDER, CANCEL]
+    private ReservationStatus status; //예매상태 [ORDER, CANCEL]
 
     //==연관관계 메서드==//
     public void setMember(Member member) {

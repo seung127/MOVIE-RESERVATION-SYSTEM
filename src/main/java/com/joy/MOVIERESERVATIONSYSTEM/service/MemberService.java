@@ -14,9 +14,10 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class MemberService {
 
-    MemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
     /** 회원가입**/
+    @Transactional
     public Long join(Member member){
         validateDuplicateMember(member);
         memberRepository.save(member);
@@ -31,7 +32,7 @@ public class MemberService {
         }
     }
 
-    /** 전체 회원 조회*/
+    /** 전체 회원 조회**/
     public List<Member> findMembers() {
         return memberRepository.findAll();
     }

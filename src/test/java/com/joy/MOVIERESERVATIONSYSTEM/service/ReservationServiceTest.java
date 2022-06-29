@@ -2,6 +2,7 @@ package com.joy.MOVIERESERVATIONSYSTEM.service;
 
 import com.joy.MOVIERESERVATIONSYSTEM.domain.member.Member;
 import com.joy.MOVIERESERVATIONSYSTEM.domain.movie.Movie;
+import com.joy.MOVIERESERVATIONSYSTEM.domain.movie.Region;
 import com.joy.MOVIERESERVATIONSYSTEM.domain.reservation.Reservation;
 import com.joy.MOVIERESERVATIONSYSTEM.domain.reservation.ReservationStatus;
 import com.joy.MOVIERESERVATIONSYSTEM.repository.ReservationRepository;
@@ -39,7 +40,6 @@ class ReservationServiceTest {
         Movie movie= new Movie();
         movie.setMaxSeat(10);
         movie.setRemainSeat(10);
-        movie.setTitle("joy");
 
         int count=2;
 
@@ -55,7 +55,6 @@ class ReservationServiceTest {
 
 
         Assertions.assertThat(ReservationStatus.RESERVATION).isEqualTo(getReservation.getStatus());
-        Assertions.assertThat(ReservationStatus.RESERVATION).isEqualTo(getReservation.getStatus());
         Assertions.assertThat(8).isEqualTo( movie.getRemainSeat());
 
     }
@@ -69,7 +68,6 @@ class ReservationServiceTest {
         Movie movie= new Movie();
         movie.setMaxSeat(10);
         movie.setRemainSeat(10);
-        movie.setTitle("joy");
 
         int count=2;
 

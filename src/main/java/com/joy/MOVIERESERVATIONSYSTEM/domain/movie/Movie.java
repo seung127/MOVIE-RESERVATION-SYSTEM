@@ -16,7 +16,7 @@ public class Movie {
     @Id
     @GeneratedValue
     @Column(name = "movie_id")
-    private Long id;
+    private long id;
 
     private int maxSeat;
 

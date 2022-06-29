@@ -1,8 +1,10 @@
 package com.joy.MOVIERESERVATIONSYSTEM.service;
 
 
+import com.joy.MOVIERESERVATIONSYSTEM.controller.dto.ReservationSearch;
 import com.joy.MOVIERESERVATIONSYSTEM.domain.member.Member;
 import com.joy.MOVIERESERVATIONSYSTEM.domain.movie.Movie;
+import com.joy.MOVIERESERVATIONSYSTEM.domain.movie.Region;
 import com.joy.MOVIERESERVATIONSYSTEM.domain.reservation.Reservation;
 import com.joy.MOVIERESERVATIONSYSTEM.repository.MemberRepository;
 import com.joy.MOVIERESERVATIONSYSTEM.repository.MovieRepository;
@@ -12,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.swing.text.html.Option;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -56,5 +59,10 @@ public class ReservationService {
     }
 
     //검색
+
+    public List<Reservation> findReservationsTitle(String title) {
+        return reservationRepository.findByTitle(title);
+    }
+
 
 }
