@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header"/>
+<body>
+<div class="container">
+    <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+    <div>
+        <div>
+            <form th:object="${reservationSearch}" class="form-inline">
+
+                <div class="form-group mx-sm-1 mb-2">
+                    <select th:field="*{title}" class="form-control">
+                        <option value="">제목</option>
+                        <option th:each="movie : ${movies}"
+                                th:value="${movie.title}"
+                                th:text="${movie.title}" />
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary mb-2">검색</button>
+            </form>
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>회원명</th>
+                <th>제목</th>
+                <th>영화관</th>
+                <th>영화상영관</th>
+                <th>상영날짜</th>
+                <th>상영시작시간</th>
+                <th>티켓수</th>
+                <th>예약상태</th>
+                <th>총가격</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="reservation : ${reservations}">
+                <td th:text="${reservation.member.name}"></td>
+                <td th:text="${reservation.movie.title}"></td>
+                <td th:text="${reservation.movie.region}"></td>
+                <td th:text="${reservation.movie.cinemaNum}"></td>
+                <td th:text="${reservation.movie.date}"></td>
+                <td th:text="${reservation.movie.time}"></td>
+                <td th:text="${reservation.count}"></td>
+                <td th:text="${reservation.status}"></td>
+                <td th:text="${reservation.totalPrice}"></td>
+                <td>
+                    <a th:if="${reservation.status.name() == 'RESERVATION'}" href="#"
+                       th:href="'javascript:cancel('+${reservation.id}+')'"
+                       class="btn btn-danger">CANCEL</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:replace="fragments/footer :: footer"/>
+</div> <!-- /container -->
+</body>
+<script>
+function cancel(id) {
+var form = document.createElement("form");
+form.setAttribute("method", "post");
+form.setAttribute("action", "/reservations/" + id + "/cancel");
+document.body.appendChild(form);
+form.submit();
+}
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header" />
+<body>
+<div class="container">
+  <div th:replace="fragments/bodyHeader :: bodyHeader"/>
+  <div>
+    <table class="table table-striped">
+      <thead>
+      <tr>
+        <th>영화제목</th>
+        <th>감독</th>
+        <th>영화관</th>
+        <th>상영관</th>
+        <th>상영날짜</th>
+        <th>상영시작 시간</th>
+        <th>좌석수</th>
+        <th>잔여좌석수</th>
+        <th>가격</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="movie : ${movies}">
+        <td th:text="${movie.title}"></td>
+        <td th:text="${movie.director}"></td>
+        <td th:text="${movie.region}"></td>
+        <td th:text="${movie.cinemaNum}"></td>
+        <td th:text="${movie.date}"></td>
+        <td th:text="${movie.time}"></td>
+        <td th:text="${movie.maxSeat}"></td>
+        <td th:text="${movie.remainSeat}"></td>
+        <td th:text="${movie.price}"></td>
+
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div th:replace="fragments/footer :: footer"/>
+</div> <!-- /container -->
+</body>
+</html>
