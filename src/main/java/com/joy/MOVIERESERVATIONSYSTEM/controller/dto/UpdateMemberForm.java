@@ -5,24 +5,20 @@ import lombok.Setter;
 
 import javax.validation.constraints.NotEmpty;
 
-
 @Getter
 @Setter
-public class MemberForm {
+public class UpdateMemberForm {
+
 
     private Long id;
 
     @NotEmpty(message = "회원 이름은 필수 입니다")
     private String name;
 
+    @NotEmpty(message = "이메일은 필수 입니다")
     private String eMail;
 
+    @NotEmpty(message = "전화번호는 필수 입니다")
     private String phoneNumber;
-
-    @NotEmpty(message = "아이디 입력은 필수 입니다")
-    private String loginId;
-
-    @NotEmpty(message = "비밀번호 입력은 필수 입니다(-빼고 입력해주세요)")
-    private String password;
 
 }

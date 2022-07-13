@@ -37,8 +37,15 @@ public class MemberService {
         return memberRepository.findAll();
     }
 
-    public Optional<Member> findOne(Long memberId) {
-        return memberRepository.findById(memberId);
+    public Optional<Member> findOne(Long memberId) {return memberRepository.findById(memberId);}
+
+    @Transactional
+    public void updateMember(Long id, String name,String eMail, String phoneNumber) {
+        Member member = memberRepository.findById(id).get();
+        member.setName(name);
+        member.setEMail(eMail);
+        member.setPhoneNumber(phoneNumber);
     }
+
 
 }
